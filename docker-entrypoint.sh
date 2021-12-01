@@ -1,4 +1,5 @@
 #!/bin/bash
+cd /usr/src
 set -xeuo pipefail
 wget https://github.com/stefanberger/libtpms/archive/refs/tags/v${LIBTPMS_VER}.tar.gz
 tar xvf v${LIBTPMS_VER}.tar.gz
@@ -12,4 +13,3 @@ tar xvf v${SWTPM_VER}.tar.gz
 cd swtpm-${SWTPM_VER}
 ./autogen.sh --with-openssl
 dpkg-buildpackage -us -uc -j$(nproc)
-
