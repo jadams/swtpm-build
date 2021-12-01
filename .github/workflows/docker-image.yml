@@ -17,7 +17,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag swtpm-build:$(date +%s)
     - name: Build libtpms and swtpm for Ubuntu 20.04
-      run: docker run --rm -it -v $(pwd)/artifacts/:/usr/src swtpm-build
+      run: docker run --rm -v $(pwd)/artifacts/:/usr/src swtpm-build
     - uses: actions/upload-artifact@v2
       with:
         name: libtpms
